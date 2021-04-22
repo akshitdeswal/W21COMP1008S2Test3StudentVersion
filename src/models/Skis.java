@@ -5,6 +5,8 @@ package models;
 
 import Utilities.DBUtility;
 
+import java.util.List;
+
 public class Skis extends InventoryItem{
     private String brand, model;
     private int length;
@@ -21,6 +23,13 @@ public class Skis extends InventoryItem{
     }
 
     public void setBrand(String brand) {
+        List<String>  validBrands = DBUtility.getSkiBrands();
+        if(validBrands.contains(brand)){
+            this.brand = brand;
+        }
+        else {
+            throw new IllegalArgumentException( brand + " is invalid please choose from valid options" + validBrands);
+        }
     }
 
     public String getModel() {
