@@ -34,6 +34,12 @@ public abstract class InventoryItem {
     }
 
     public void setQuantitySold(int quantitySold) {
+//        if(quantitySold > getQuantityInStock()){
+//
+//            throw new IllegalArgumentException("quantitySold should be less than or equal to quantityInStock");
+//
+//        }
+//        quantitySold = getQuantitySold()+quantitySold;
     }
 
     public double getPurchasePrice() {
@@ -41,6 +47,14 @@ public abstract class InventoryItem {
     }
 
     public void setPurchasePrice(double purchasePrice) {
+        if (purchasePrice >=0)
+        {
+            this.purchasePrice = purchasePrice;
+        }
+        else
+        {
+            throw new IllegalArgumentException("Invalid Purchase Prize, cannot be negative");
+        }
     }
 
     public double getSellingPrice() {
@@ -48,6 +62,14 @@ public abstract class InventoryItem {
     }
 
     public void setSellingPrice(double sellingPrice) {
+        if (sellingPrice > purchasePrice)
+        {
+            this.sellingPrice = sellingPrice;
+        }
+        else
+        {
+            throw new IllegalArgumentException("Invalid Selling Prize, cannot be less than purchasePrice No profit.");
+        }
     }
 
     public double getProfit()
