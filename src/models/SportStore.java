@@ -19,6 +19,7 @@ public class SportStore {
     }
 
     public void setAddress(String address) {
+
     }
 
     public ArrayList<InventoryItem> getInventory() {
