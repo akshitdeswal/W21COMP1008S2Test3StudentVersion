@@ -37,6 +37,13 @@ public class Skis extends InventoryItem{
     }
 
     public void setModel(String model) {
+        List<String> validModels = DBUtility.getSkiModelByBrand(getBrand());
+        if(validModels.contains(model)){
+            this.model = model;
+        }
+        else {
+            throw new IllegalArgumentException("Not valid models ");
+        }
     }
 
     public int getLength() {
