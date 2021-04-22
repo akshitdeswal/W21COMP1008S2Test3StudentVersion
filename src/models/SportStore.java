@@ -37,6 +37,7 @@ public class SportStore {
 
     public double calculateProfit()
     {
+        //instance variable.
         double profit=0;
         ArrayList<InventoryItem> items = getInventory();
 
