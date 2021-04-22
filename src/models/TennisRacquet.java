@@ -56,6 +56,14 @@ public class TennisRacquet  extends InventoryItem{
     }
 
     public void setBrand(String brand) {
+
+        List<String> validBrands = DBUtility.tennisEquipmentBrands();
+        if(validBrands.contains(brand)){
+            this.brand = brand;
+        }
+        else{
+            throw new IllegalArgumentException( brand + " is invalid please choose from valid options" + validBrands);
+        }
     }
 
     public String getModel() {
