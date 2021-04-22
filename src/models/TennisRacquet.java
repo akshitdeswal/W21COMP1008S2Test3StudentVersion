@@ -5,6 +5,8 @@ package models;
 
 import Utilities.DBUtility;
 
+import java.util.List;
+
 public class TennisRacquet  extends InventoryItem{
     private double weight;  //240-310
     private String headSize; //midsize, midplus, oversize, super oversize
@@ -37,6 +39,16 @@ public class TennisRacquet  extends InventoryItem{
     }
 
     public void setHeadSize(String headSize) {
+        headSize = headSize.toLowerCase();
+        List<String> validSizes = DBUtility.getTennisRacquetHeadSizes();
+        if(validSizes.contains(headSize)){
+            this.headSize = headSize;
+        }
+        else{
+            throw new IllegalArgumentException( headSize + " is invalid please choose from valid options" + validSizes);
+        }
+
+
     }
 
     public String getBrand() {
