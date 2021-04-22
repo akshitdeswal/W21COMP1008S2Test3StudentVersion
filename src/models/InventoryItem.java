@@ -13,7 +13,7 @@ public abstract class InventoryItem {
         setPurchasePrice(purchasePrice);
         setSellingPrice(sellingPrice);
         setQuantityInStock(quantityInStock);
-        setQuantitySold(5);
+        setQuantitySold(0);
     }
 
     public int getQuantityInStock() {
