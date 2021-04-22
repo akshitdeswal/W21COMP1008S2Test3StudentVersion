@@ -71,5 +71,13 @@ public class TennisRacquet  extends InventoryItem{
     }
 
     public void setModel(String model) {
+        List<String> validModels = DBUtility.tennisRacquetModelsByBrand(getBrand());
+        if(validModels.contains(model)){
+            this.model = model;
+        }
+        else {
+            throw new IllegalArgumentException("Not valid models ");
+        }
+
     }
 }
